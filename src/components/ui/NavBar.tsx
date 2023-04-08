@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { FiGithub, FiTwitter } from "react-icons/fi"
+import { HiOutlineSparkles } from "react-icons/hi"
 
 import { socials } from "@/lib/constants"
 import { SmallLogo } from "../SmallLogo"
@@ -22,6 +23,11 @@ export const NavBar = () => {
           <Link href={socials.twitter} target="_blank" rel="noreferrer">
             <Button variant="ghost" size="sm">
               <FiTwitter className="sm-button-icon" />
+            </Button>
+          </Link>
+          <Link href={socials.portfolio} target="_blank">
+            <Button variant="ghost" size="sm">
+              <HiOutlineSparkles className="sm-button-icon" />
             </Button>
           </Link>
         </div>

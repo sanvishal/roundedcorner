@@ -24,7 +24,7 @@ export const HomePage = () => {
   return (
     <>
       <section
-        className="relative my-6 h-44 w-full rounded-2xl bg-transparent md:h-[430px]"
+        className="relative my-6 h-44 w-full rounded-2xl bg-transparent md:h-52"
         ref={flowFieldRef}
       >
         {flowFieldDimensions && (
