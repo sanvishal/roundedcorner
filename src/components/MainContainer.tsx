@@ -29,7 +29,8 @@ export const MainContainer = ({ children }: PropsWithChildren) => {
         />
         <meta
           name="description"
-          content="interactive blogs, writeups, random thoughts and explorable explanations by vishal tk"
+          // content="interactive blogs, writeups, random thoughts and explorable explanations by vishal tk"
+          content="coming soon..."
           key="description"
         />
         <meta property="og:title" content="roundedcorner • tk" key="title" />
@@ -37,7 +38,8 @@ export const MainContainer = ({ children }: PropsWithChildren) => {
         <meta name="twitter:title" content="roundedcorner • tk" />
         <meta
           name="twitter:description"
-          content="nteractive blogs, writeups, random thoughts and explorable explanations"
+          content="coming soon..."
+          // content="interactive blogs, writeups, random thoughts and explorable explanations"
         />
         <meta
           name="keywords"
