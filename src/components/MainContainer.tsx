@@ -3,6 +3,7 @@ import Head from "next/head"
 import { useTheme } from "next-themes"
 import colors from "tailwindcss/colors"
 
+import { site } from "@/lib/constants"
 import { ThemeToggle } from "./ThemeToggle"
 import { NavBar } from "./ui/NavBar"
 
@@ -20,7 +21,7 @@ export const MainContainer = ({ children }: PropsWithChildren) => {
         />
         <title>roundedcorner • tk</title>
         <meta charSet="utf-8" />
-        <meta property="og:image" content="/og.jpg" />
+        <meta property="og:image" content={`${site.url}/og.jpg`} />
         <meta
           name="theme-color"
           key="theme-color"
