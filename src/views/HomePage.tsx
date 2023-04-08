@@ -46,6 +46,9 @@ export const HomePage = () => {
         </div>
         <p className="mt-2 text-right text-base text-zinc-400">by vishal tk</p>
       </section>
+      <section className="mt-44 text-center text-lg font-medium opacity-75">
+        <p>coming soon!</p>
+      </section>
     </>
   )
 }
