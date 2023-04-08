@@ -2,6 +2,9 @@ import "@/styles/globals.css"
 import type { AppProps } from "next/app"
 import { DM_Mono, DM_Sans, Fraunces } from "next/font/google"
 import { clsx } from "clsx"
+import { ThemeProvider } from "next-themes"
+
+import { cn } from "@/lib/utils"
 
 const DMSansFont = DM_Sans({
   weight: ["400", "500", "700"],
@@ -28,15 +31,18 @@ const frauncesFont = Fraunces({
 })
 
 export default function App({ Component, pageProps }: AppProps) {
-  console.log(DMMonoFont)
   return (
     <main
-      className={`
-        ${DMMonoFont.variable}
-        ${frauncesFont.variable}
-        ${DMSansFont.variable}`}
+      className={cn(
+        frauncesFont.variable,
+        DMMonoFont.variable,
+        DMSansFont.variable,
+        DMSansFont.className
+      )}
     >
-      <Component {...pageProps} />
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </main>
   )
 }
