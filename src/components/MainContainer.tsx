@@ -7,7 +7,10 @@ import { site } from "@/lib/constants"
 import { ThemeToggle } from "./ThemeToggle"
 import { NavBar } from "./ui/NavBar"
 
-export const MainContainer = ({ children }: PropsWithChildren) => {
+export const MainContainer = ({
+  children,
+  showNav = true,
+}: PropsWithChildren<{ showNav?: boolean }>) => {
   const { theme } = useTheme()
 
   return (
@@ -51,7 +54,7 @@ export const MainContainer = ({ children }: PropsWithChildren) => {
           content="https://twitter.com/tk_vishal_tk"
         />
       </Head>
-      <NavBar />
+      {!showNav && <NavBar />}
       {children}
     </main>
   )

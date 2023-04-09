@@ -1,21 +1,22 @@
 import "@/styles/globals.css"
+import "@/styles/mdx.css"
 import type { AppProps } from "next/app"
-import { DM_Mono, DM_Sans, Fraunces } from "next/font/google"
+import { DM_Mono, Fraunces, IBM_Plex_Mono, Quicksand } from "next/font/google"
 import Head from "next/head"
 import { clsx } from "clsx"
 import { ThemeProvider } from "next-themes"
 
 import { cn } from "@/lib/utils"
 
-const DMSansFont = DM_Sans({
+const quicksandFont = Quicksand({
   weight: ["400", "500", "700"],
-  style: ["italic", "normal"],
+  style: ["normal"],
   subsets: ["latin"],
   variable: "--body-font",
   display: "swap",
 })
 
-const DMMonoFont = DM_Mono({
+const DMMonoFont = IBM_Plex_Mono({
   weight: ["300", "400", "500"],
   style: ["italic", "normal"],
   subsets: ["latin"],
@@ -24,7 +25,7 @@ const DMMonoFont = DM_Mono({
 })
 
 const frauncesFont = Fraunces({
-  weight: ["400", "500", "600"],
+  weight: ["500", "600", "700"],
   style: ["italic", "normal"],
   subsets: ["latin"],
   variable: "--heading-font",
@@ -37,8 +38,8 @@ export default function App({ Component, pageProps }: AppProps) {
       className={cn(
         frauncesFont.variable,
         DMMonoFont.variable,
-        DMSansFont.variable,
-        DMSansFont.className
+        quicksandFont.variable,
+        quicksandFont.className
       )}
     >
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

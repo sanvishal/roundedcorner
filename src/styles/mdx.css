@@ -1,0 +1,29 @@
+[data-rehype-pretty-code-fragment] {
+  @apply relative;
+}
+
+[data-rehype-pretty-code-fragment] code {
+  @apply grid min-w-full break-words rounded-none border-0 bg-transparent px-0 py-4 dark:bg-transparent;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+
+[data-rehype-pretty-code-fragment] code .line {
+  @apply px-4;
+}
+
+.dark pre[data-theme="light"] {
+  display: none;
+}
+
+.light pre[data-theme="dark"] {
+  display: none;
+}
+
+pre .word--highlighted {
+  @apply rounded-md bg-zinc-300 p-0.5 px-1 dark:bg-zinc-700;
+}
+
+pre .line[data-highlighted="false"] {
+  @apply opacity-30;
+}
