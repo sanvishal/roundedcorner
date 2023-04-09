@@ -54,7 +54,7 @@ export const MainContainer = ({
           content="https://twitter.com/tk_vishal_tk"
         />
       </Head>
-      {!showNav && <NavBar />}
+      {showNav && <NavBar />}
       {children}
     </main>
   )

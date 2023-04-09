@@ -40,15 +40,7 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [
-      remarkGfm,
-      () => (tree) => {
-        visit(tree, (node) => {
-          node.someData = "something"
-          console.log(node)
-        })
-      },
-    ],
+    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       () => (tree) => {
@@ -83,7 +75,6 @@ export default makeSource({
       ],
       () => (tree) => {
         visit(tree, (node) => {
-          // console.log(node?.someData)
           if (node?.type === "element" && node?.tagName === "code") {
             if (node.children) {
               const linesToHide: any[] = []

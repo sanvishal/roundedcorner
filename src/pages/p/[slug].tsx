@@ -33,7 +33,7 @@ export async function getStaticProps({
 const PostLayout = ({ post }: { post: Post }) => {
   // console.log(post)
   return (
-    <MainContainer showNav={false}>
+    <MainContainer>
       <Head>
         <title>{post.title}</title>
       </Head>
