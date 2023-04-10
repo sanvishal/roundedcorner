@@ -5,6 +5,7 @@ import { useTheme } from "next-themes"
 import colors from "tailwindcss/colors"
 
 import { Logo } from "@/components/Logo"
+import { Button } from "@/components/ui/Button"
 
 const FlowField = dynamic(
   // @ts-ignore
@@ -31,11 +32,11 @@ export const HomePage = () => {
               className="h-full w-full overflow-hidden rounded-2xl"
               width={flowFieldDimensions.width}
               height={flowFieldDimensions.height}
-              bgColor={theme === "dark" ? colors.zinc[100] : colors.zinc[900]}
+              bgColor={theme === "dark" ? colors.zinc[50] : colors.zinc[900]}
               fgColor={
                 theme === "dark"
                   ? colors.zinc[900] + "33"
-                  : colors.zinc[100] + "33"
+                  : colors.zinc[50] + "33"
               }
             />
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-125">
@@ -48,6 +49,14 @@ export const HomePage = () => {
       </section>
       <section className="mt-44 text-center text-lg font-medium opacity-75">
         <p>coming soon!</p>
+        <div className="space-x-1">
+          <Button variant="default">hello</Button>
+          <Button variant="destructive">hello</Button>
+          <Button variant="ghost">hello</Button>
+          <Button variant="link">hello</Button>
+          <Button variant="outline">hello</Button>
+          <Button variant="subtle">hello</Button>
+        </div>
       </section>
     </>
   )
