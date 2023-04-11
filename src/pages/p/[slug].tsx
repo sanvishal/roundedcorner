@@ -44,12 +44,12 @@ const PostLayout = ({ post }: { post: Post }) => {
   })
 
   return (
-    <MainContainer showNav={false}>
-      <FloatingNavbar showIcon={!isIconInView} />
+    <MainContainer>
+      <FloatingNavbar showIcon={iconRef.current ? !isIconInView : false} />
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article className="mx-auto mt-2 max-w-[820px]">
+      <article className="mx-auto mt-2 max-w-[820px] pb-16">
         <div ref={iconRef} className="flex items-center justify-between">
           <Logo size="sm" />
           <div className="block lg:hidden">
@@ -57,11 +57,13 @@ const PostLayout = ({ post }: { post: Post }) => {
           </div>
         </div>
         <div className="my-10 mt-14">
-          <h5 className="mb-2 font-mono text-lg text-zinc-400 dark:text-zinc-500">
+          <h5 className="mb-2 font-mono text-zinc-400 dark:text-zinc-500 md:text-lg">
             {dayjs(post.date).format("MMM DD, YYYY")}
           </h5>
-          <h1 className="font-serif text-6xl font-semibold">{post.title}</h1>
-          <h5 className="mt-4 font-sans text-lg leading-7 text-zinc-500 dark:text-zinc-400">
+          <h1 className="font-serif text-5xl font-semibold md:text-6xl">
+            {post.title}
+          </h1>
+          <h5 className="mt-4 font-sans leading-7 text-zinc-500 dark:text-zinc-400 md:text-lg">
             {post.subtitle}
           </h5>
         </div>

@@ -9,7 +9,7 @@ import { Button } from "./Button"
 
 export const NavBar = () => {
   return (
-    <nav className="flex-between h-16  px-0">
+    <nav className="flex-between h-16 px-0">
       <div>
         <SmallLogo size="sm" />
       </div>

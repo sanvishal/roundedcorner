@@ -8,10 +8,7 @@ import { FloatingNavbar } from "./FloatingNavbar"
 import { ThemeToggle } from "./ThemeToggle"
 import { NavBar } from "./ui/NavBar"
 
-export const MainContainer = ({
-  children,
-  showNav = true,
-}: PropsWithChildren<{ showNav?: boolean }>) => {
+export const MainContainer = ({ children }: PropsWithChildren) => {
   const { theme } = useTheme()
 
   return (
@@ -55,7 +52,6 @@ export const MainContainer = ({
           content="https://twitter.com/tk_vishal_tk"
         />
       </Head>
-      {showNav && <NavBar />}
       {/* <FloatingNavbar /> */}
       {children}
     </main>
