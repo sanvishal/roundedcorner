@@ -1,11 +1,12 @@
-import * as fs from "fs"
+// @ts-ignore
+import remarkFigureCaption from "@microflash/remark-figure-caption"
 import { defineDocumentType, makeSource } from "contentlayer/source-files"
+import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypePrettyCode, { Options } from "rehype-pretty-code"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import { HighlighterOptions, getHighlighter } from "shiki"
 import { visit } from "unist-util-visit"
-import { Node } from "unist-util-visit/lib"
 
 const theme: Record<string, HighlighterOptions["theme"]> = {
   dark: "github-dark-dimmed",
@@ -27,6 +28,11 @@ export const Post = defineDocumentType(() => ({
       description: "The date of the post",
       required: true,
     },
+    subtitle: {
+      type: "string",
+      description: "The subtitle of the post",
+      required: true,
+    },
   },
   computedFields: {
     slug: {
@@ -40,8 +46,9 @@ export default makeSource({
   contentDirPath: "posts",
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, remarkFigureCaption],
     rehypePlugins: [
+      rehypeAutolinkHeadings,
       rehypeSlug,
       () => (tree) => {
         visit(tree, (node) => {

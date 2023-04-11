@@ -27,3 +27,20 @@ pre .word--highlighted {
 pre .line[data-highlighted="false"] {
   @apply opacity-30;
 }
+
+figure {
+  @apply my-4;
+}
+
+figure img {
+  @apply mx-auto;
+}
+
+figure figcaption {
+  @apply mt-0.5 block text-center text-zinc-500;
+}
+
+figure figcaption::after {
+  content: "↩";
+  @apply ml-2 text-zinc-500;
+}

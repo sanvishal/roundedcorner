@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { useMDXComponent } from "next-contentlayer/hooks"
 
 import { cn } from "@/lib/utils"
@@ -96,11 +97,7 @@ const components = {
     ...props
   }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img
-      className={cn("rounded-md border border-zinc-200", className)}
-      alt={alt}
-      {...props}
-    />
+    <img className={cn("w-1/2 rounded-md", className)} alt={alt} {...props} />
   ),
   hr: ({ ...props }: React.HTMLAttributes<HTMLHRElement>) => (
     <hr

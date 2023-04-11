@@ -1,9 +1,16 @@
+import { useRef } from "react"
 import { GetStaticProps, GetStaticPropsResult } from "next"
 import Head from "next/head"
 import { Post, allPosts } from "contentlayer/generated"
+import dayjs from "dayjs"
+import { motion, useInView, useScroll } from "framer-motion"
 
+import { FloatingNavbar } from "@/components/FloatingNavbar"
+import { Logo } from "@/components/Logo"
 import { MainContainer } from "@/components/MainContainer"
 import { Mdx } from "@/components/Mdx"
+import { SmallLogo } from "@/components/SmallLogo"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 interface PageProps {
   params: {
@@ -31,13 +38,33 @@ export async function getStaticProps({
 }
 
 const PostLayout = ({ post }: { post: Post }) => {
-  // console.log(post)
+  const iconRef = useRef(null)
+  const isIconInView = useInView(iconRef, {
+    once: false,
+  })
+
   return (
-    <MainContainer>
+    <MainContainer showNav={false}>
+      <FloatingNavbar showIcon={!isIconInView} />
       <Head>
         <title>{post.title}</title>
       </Head>
-      <article>
+      <article className="mx-auto mt-2 max-w-[820px]">
+        <div ref={iconRef} className="flex items-center justify-between">
+          <Logo size="sm" />
+          <div className="block lg:hidden">
+            <ThemeToggle />
+          </div>
+        </div>
+        <div className="my-10 mt-14">
+          <h5 className="mb-2 font-mono text-lg text-zinc-400 dark:text-zinc-500">
+            {dayjs(post.date).format("MMM DD, YYYY")}
+          </h5>
+          <h1 className="font-serif text-6xl font-semibold">{post.title}</h1>
+          <h5 className="mt-4 font-sans text-lg leading-7 text-zinc-500 dark:text-zinc-400">
+            {post.subtitle}
+          </h5>
+        </div>
         <Mdx code={post.body.code} />
       </article>
     </MainContainer>

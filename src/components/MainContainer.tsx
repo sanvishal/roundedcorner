@@ -4,6 +4,7 @@ import { useTheme } from "next-themes"
 import colors from "tailwindcss/colors"
 
 import { site } from "@/lib/constants"
+import { FloatingNavbar } from "./FloatingNavbar"
 import { ThemeToggle } from "./ThemeToggle"
 import { NavBar } from "./ui/NavBar"
 
@@ -14,7 +15,7 @@ export const MainContainer = ({
   const { theme } = useTheme()
 
   return (
-    <main className="relative p-4 sm:container sm:mx-auto lg:max-w-[70em]">
+    <main className="relative p-4 sm:mx-auto md:px-0 lg:max-w-[80rem]">
       <Head>
         <link
           rel="icon"
@@ -55,6 +56,7 @@ export const MainContainer = ({
         />
       </Head>
       {showNav && <NavBar />}
+      {/* <FloatingNavbar /> */}
       {children}
     </main>
   )
